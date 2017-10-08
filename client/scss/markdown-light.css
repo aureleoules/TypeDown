@@ -1,0 +1,65 @@
+.markdown-light a {
+	color: #2980b9;
+}
+
+.markdown-light p {
+    color: #fafafa
+}
+
+.markdown-light h1,
+.markdown-light h2,
+.markdown-light h3,
+.markdown-light h4,
+.markdown-light h5,
+.markdown-light h6 {
+    font-weight: 600;
+    color: #fafafa!important;
+}
+.markdown-light h1 {
+    font-size: 1.9em;
+}
+.markdown-light h2 {
+    font-size: 1.5em;
+}
+
+.markdown-light h3 {
+    font-size: 1.2em;
+}
+
+.markdown-light strong {
+	color: #e2e2e2;
+	font-weight: bold
+}
+
+.markdown-light,
+.markdown-light pre code {
+	color: #333;
+}
+
+.markdown-light code {
+	color: #c0392b;
+}
+
+.markdown-light pre:not(.hljs),
+.markdown-light code>div {
+	color: #333;
+	background-color: #f8f8f8;
+	font-weight: normal;
+}
+
+.markdown-light table>thead>tr>th {
+	border-color: #ddd;
+}
+
+.markdown-light h1,
+.markdown-light hr,
+.markdown-light table>tbody>tr+tr>td {
+	border-color: #eee;
+}
+
+.markdown-light blockquote {
+	padding: 0 1em;
+	color: #777;
+	border-left: 0.25em solid #ddd;
+	background: transparent;
+}

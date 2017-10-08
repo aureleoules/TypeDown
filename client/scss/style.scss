@@ -1,0 +1,196 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400);
+@font-face {
+	font-family: 'Love Story Rough';
+	src: url('../fonts/Love Story Rough.ttf') format('opentype');
+	font-weight: normal;
+}
+
+body {
+	margin: 0 !important;
+	min-height: 100%;
+	height: 100%;
+	background-color: #2f3241;
+	font-family: "Roboto", sans-serif;
+}
+
+html {
+	min-height: 100%;
+	height: 100%;
+}
+
+#root {
+	min-height: 100%;
+	height: 100%!important;
+}
+
+[data-reactroot] {
+	min-height: 100%;
+	height: 100% !important;
+}
+
+.login-container {
+	background-color: #00D1B2;
+}
+
+.login-page {
+	width: 360px;
+	padding: 8% 0 100px;
+	margin: auto;
+}
+
+.login-page-form {
+	position: relative;
+	z-index: 1;
+	background: #FFFFFF;
+	max-width: 360px;
+	padding: 45px;
+	text-align: center;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.login-page-form input {
+	font-family: "Roboto", sans-serif;
+	outline: 0;
+	background: #f2f2f2;
+	width: 100%;
+	border: 0;
+	margin: 0 0 15px;
+	padding: 15px;
+	box-sizing: border-box;
+	font-size: 14px;
+}
+
+.login-page-form .login-button {
+	font-family: "Roboto", sans-serif;
+	display: inline-block;
+	text-transform: uppercase;
+	outline: 0;
+	background: #2f3241;
+	width: 100%;
+	border: 0;
+	padding: 15px;
+	color: #FFFFFF;
+	font-size: 14px;
+	-webkit-transition: all 0.3 ease;
+	transition: all 0.3 ease;
+	cursor: pointer;
+}
+
+.login-page-form button:hover,
+.form button:active,
+.form button:focus {
+	background: #2f3241;
+}
+
+.login-page-form .login-message {
+	margin: 15px 0 0;
+	color: #b3b3b3;
+	font-size: 12px;
+}
+
+.login-page-form .login-message a {
+	color: #2f3241;
+	text-decoration: none;
+}
+
+.disabled {
+	pointer-events: none;
+	cursor: default;
+}
+
+.user-dropdown {
+	left: auto!important;
+	right: 0!important;
+}
+
+.icon-r {
+	padding-right: 10px
+}
+
+.width-100 {
+	width: 100%
+}
+
+.fullheight {
+	height: 100vh;
+}
+
+.fullheight-with-navbar {
+	height: 92vh;
+}
+
+.bottom-round-border {
+	border: 4px solid #34495E;
+	border-radius: 0 0 10px 10px;
+}
+
+.site-footer-links {
+	li {
+		display: inline-block;
+		line-height: 16px;
+		margin-left: 5px
+	}
+	span {
+		margin-left: 5px
+	}
+}
+
+.create-document-container {
+	display: flex;
+	/* establish flex container */
+	flex-direction: column;
+	/* make main axis vertical */
+	justify-content: center;
+	/* center items vertically, in this case */
+	align-items: center;
+	/* center items horizontally, in this case */
+	height: 100%;
+	.create-document-button {
+		text-align: center;
+		/* will center text in <p>, which is not a flex item */
+	}
+}
+
+.home-section {
+	padding-top: 0!important;
+}
+
+.editor {
+	margin: 0px 45px
+}
+
+section {
+	min-height: 100%;
+	height: 100%;
+	padding-top: 65px
+}
+
+
+.is-transparent {
+	background-color: transparent;
+}
+
+.navbar {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+.has-white {
+	color: #fff
+}
+
+.brand {
+	font-family: "Love Story Rough";
+}
+
+.rendered-markdown-div {
+	background-color: #fff
+}
+
+.document-buttons {
+	justify-content: center!important;
+	margin: 15px
+}

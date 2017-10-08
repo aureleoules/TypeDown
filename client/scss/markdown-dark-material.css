@@ -1,0 +1,60 @@
+.markdown-dark-material a {
+	color: #61AFEF;
+}
+
+.markdown-dark-material h1,
+.markdown-dark-material h2,
+.markdown-dark-material h3,
+.markdown-dark-material h4,
+.markdown-dark-material h5,
+.markdown-dark-material h6 {
+	color: #E06C75;
+}
+
+.markdown-dark-material h1 {
+    font-size: 1.9em;
+}
+
+.markdown-dark-material h2 {
+    font-size: 1.5em;
+}
+
+.markdown-dark-material h3 {
+    font-size: 1.2em;
+}
+
+.markdown-dark-material,
+.markdown-dark-material pre code {
+	color: #ABB2BF;
+}
+
+.markdown-dark-material code {
+	color: #E06C75;
+}
+
+.markdown-dark-material strong {
+	color: #e2e2e2;
+	font-weight: bold
+}
+
+.markdown-dark-material pre:not(.hljs),
+.markdown-dark-material code>div {
+	background-color: #2C323C;
+}
+
+.markdown-dark-material table>thead>tr>th {
+	border-color: #2C323C;
+}
+
+.markdown-dark-material h1,
+.markdown-dark-material hr,
+.markdown-dark-material table>tbody>tr+tr>td {
+	border-color: #2C323C;
+}
+
+.markdown-dark-material blockquote {
+	color: #5C6370;
+	font-style: italic;
+	background: transparent;
+	border-color: #2C323C;
+}
