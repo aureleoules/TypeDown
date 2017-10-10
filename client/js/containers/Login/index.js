@@ -9,6 +9,7 @@ import {setToken} from '../../services/auth';
 import MDSpinner from "react-md-spinner";
 import {sleep} from '../../utils';
 import { Redirect} from 'react-router'
+import {Link} from 'react-router-dom';
 
 class Login extends React.Component {
 
@@ -49,7 +50,7 @@ class Login extends React.Component {
                             {this.props.authentication.error &&
                                 <p style={{color: "#ff3860"}} className="login-message">{Strings.loginError}</p>                     
                             }
-                            <p className="login-message">{Strings.notRegistered} <a onClick={() => store.dispatch(push("/register"))}>{Strings.createAccount}</a></p>
+                            <p className="login-message">{Strings.notRegistered} <Link to="/register">{Strings.createAccount}</Link></p>
                         </form>
                     </div>
                 </div>

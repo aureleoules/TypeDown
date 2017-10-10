@@ -2,6 +2,7 @@
 const path = require('path');
 const mongoose = require('mongoose');
 const User = require('../models/userModel');
+const Document = require('../models/documentModel');
 const jwt = require('jsonwebtoken');
 
 exports.authenticate = function(req, res) {
@@ -43,5 +44,16 @@ exports.authenticate = function(req, res) {
                 break;
             }
         }
+    });
+}
+
+exports.get = function(req, res) {
+    const username = req.params.username;
+
+    User.findOne({username}, {username: 1, createdAt: 1}, {lean: true}, (err, user) => {
+        Document.find({owner: username, public: true}, (err, docs) => {
+            const finalUser = Object.assign({docs}, user);
+            res.json(finalUser);
+        });
     });
 }

@@ -4,6 +4,7 @@ const Strings = new LocalizedStrings({
     en: {
         appName: "TypeDown",
         login: "Login",
+        logOut: "Logout",
         username: "Username",
         password: "Password",
         createAccount: "Create an account",
@@ -19,15 +20,23 @@ const Strings = new LocalizedStrings({
         save: "Save",
         clear: "Clear",
         cancel: "Cancel",
-        clearDocumentConfirmation: "Are you sure you want to clear this document?"
+        clearDocumentConfirmation: "Are you sure you want to clear this document?",
+        title: "Title",
+        required: "Required",
+        publishedBy: "Published by",
+        pageNotFound: "Page not found...",
+        profile: "Profile",
+        myDocuments: "My documents",
+        tags: "Tags, comma separated"
     },
     fr: {
         appName: "TypeDown",
         login: "Se connecter",
+        logOut: "Se déconnecter",
         username: "Pseudonyme",
         password: "Mot de passe",
         createAccount: "Créer un compte",
-        loginError: "Mauvais identifiant ou mot de passe.",
+        loginError: "Identifiant ou mot de passe incorrect.",
         notRegistered: "Pas encore inscrit?",
         email: "Adresse email",
         create: "Créer",
@@ -39,7 +48,14 @@ const Strings = new LocalizedStrings({
         save: "Sauvegarder",
         clear: "Effacer",
         cancel: "Annuler",
-        clearDocumentConfirmation: "Êtes-vous sûr de vouloir effacer ce document?"
+        clearDocumentConfirmation: "Êtes-vous sûr de vouloir effacer ce document?",
+        title: "Titre",
+        required: "Requis",
+        publishedBy: "Publié par",
+        pageNotFound: "Page non trouvée...",
+        profile: "Profil",
+        myDocuments: "Mes documents",
+        tags: "Tags, séparés par une virgule"
     }
 });
 

@@ -3,16 +3,16 @@ import {connect} from 'react-redux';
 import store from '../../store';
 import Navbar from '../Navbar';
 import Footer from '../Footer/';
-import history from '../../history';
 import {ConnectedRouter} from 'react-router-redux';
-import { Route , Redirect} from 'react-router'
+import {BrowserRouter, Switch, Route , Redirect} from 'react-router-dom'
 import {push} from 'react-router-redux';
 import Home from '../../containers/Home';
 import Login from '../../containers/Login';
 import Register from '../../containers/Register';
 import NewDocument from '../../containers/NewDocument';
-import navRoutes from './navRoutes';
-import dropdownRoutes from './dropdownRoutes';
+import Document from '../../containers/Document';
+import Profile from '../../containers/Profile';
+import NotFound from '../../components/NotFound';
 import {bindActionCreators} from 'redux';
 import {logoutUser} from '../../actions/userActions';
 import {getUser} from '../../services/auth';
@@ -45,18 +45,23 @@ class App extends React.Component {
 
     render() {
         return(
-            <div>
-                <Navbar userDropdownItems={dropdownRoutes} items={navRoutes}/>
-                <ConnectedRouter history={history}>
+            <BrowserRouter>
+                <div>
+                    <Navbar/>
                     <div style={{height: '100%'}}>
-                        <Route exact path='/' component={Home}/>
-                        <Route render={() => this.noAuth(<Login/>)} exact path='/login'/>
-                        <Route render={() => this.noAuth(<Register/>)} exact path='/register'/>
-                        <Route render={() => this.noAuth(<NewDocument/>)} exact path='/new'/>
+                        <Switch>
+                            <Route exact path='/' component={Home}/>
+                            <Route render={() => this.noAuth(<Login/>)} exact path='/login'/>
+                            <Route render={() => this.noAuth(<Register/>)} exact path='/register'/>
+                            <Route component={NewDocument} exact path='/new'/>
+                            <Route component={Document} exact path='/document/:id'/>
+                            <Route component={Profile} exact path='/user/:username'/>
+
+                            <Route component={NotFound} />
+                        </Switch>
                     </div>
-                </ConnectedRouter>
-                {/* <Footer/> */}
-            </div>
+                </div>
+            </BrowserRouter>
         )
     }
 }

@@ -1,38 +1,56 @@
 import React from 'react';
 import Strings from '../../Strings';
-import store from '../../store';
-import {push} from 'react-router-redux';
-import MarkdownIt from 'markdown-it';
-import '../../../scss/markdown-dark-material.css';
-import '../../../scss/markdown-light.css';
 import {saveDocument} from '../../actions/documentActions';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import { Redirect } from 'react-router'
 
-const md = new MarkdownIt();
+import history from '../../history';
+
+import MarkdownEditor from '../../components/MarkdownEditor';
+import MarkdownPreview from '../../components/MarkdownPreview';
 
 class NewDocument extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            html: md.render("# " + Strings.newDocument)
+            content: "# " + Strings.newDocument,
+            title: "",
+            saveDisabled: false
         }
     }
 
     updateContent = content => {
-        const html = md.render(content);
-        this.setState({html});
+        this.setState({content});
     }
     
+    updateTitle = title => {
+        this.setState({title});
+    }   
+    updateTags = tags => {
+        this.setState({tags: tags.split(',')});
+    }
+
     clearDocument = () => {
         document.getElementById("markdown-edit").value = "";
         this.updateContent("");
     }
 
     saveDocument = () => {
-        const content = document.getElementById("markdown-edit").value;
-        this.props.saveDocument(content);
+        const content = this.state.content;
+        const title = this.state.title;
+        const tags = this.state.tags;
+        this.props.saveDocument(content, title, tags, err => {
+            if(err) throw err;
+            this.setState({redirect: true});
+        });
+    }
+
+    _renderRedirect = () => {
+        if(this.state.redirect) {
+            return (<Redirect to={`/document/${this.props.document.data._id}`} push/>);
+        }
     }
 
     render() {
@@ -40,18 +58,25 @@ class NewDocument extends React.Component {
             <section className="new-document-section">
                 <div className="editor">
                     <div className="columns">
-                        <div className="column animated fadeInDown">
-                            <textarea id="markdown-edit" style={{minHeight: "45vh", height: "85vh", maxHeight: "85vh"}} defaultValue={"# " + Strings.newDocument} onChange={txt => this.updateContent(txt.target.value)} className="textarea"></textarea>
+                        <div className="column is-6 animated fadeInDown">
+                            <MarkdownEditor defaultValue={"# " + Strings.newDocument} updateContent={this.updateContent}/>
                         </div>
-                        <div className="column animated fadeInUp">
-                            <div className="rendered-markdown-div markdown-dark-material" style={{overflowY: "scroll", height: "85vh", maxHeight: "85vh", padding: 50, backgroundColor: "#282C34"}} dangerouslySetInnerHTML={{__html:this.state.html}}> 
-                            </div>
+                        <div className="column is-6 animated fadeInUp">
+                            <MarkdownPreview scrollBar height="85vh" maxHeight="85vh" content={this.state.content}/>
                         </div>
                     </div>
                 </div>
                 <div className="field is-grouped document-buttons animated flipInX">
                     <p className="control">
-                        <a onClick={() => this.saveDocument()} className="button is-primary">
+                        <input style={{width: 225}} onChange={txt => this.updateTitle(txt.target.value)} className="input" type="text" placeholder={Strings.title + " (" + Strings.required + ")"}/>                    
+                    </p>
+                    <p className="control">
+                        <input style={{width: 225}} onChange={txt => this.updateTags(txt.target.value)} className="input" type="text" placeholder={Strings.tags + " (" + Strings.atLeastOne + ")"}/>                    
+                    </p>
+                </div>
+                <div className="field is-grouped document-buttons animated flipInX">
+                    <p className="control">
+                        <a onClick={() => this.saveDocument()} className={`button is-primary ${(this.state.content.length > 5 && this.state.title.length > 3) ? '' : 'disabled'}`}>
                             {Strings.save}
                         </a>
                     </p>
@@ -78,6 +103,7 @@ class NewDocument extends React.Component {
                     </div>
                     <button className="modal-close is-large" aria-label="close"></button>
                 </div>
+                {this._renderRedirect()}
             </section>
         )
     }

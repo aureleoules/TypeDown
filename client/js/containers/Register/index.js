@@ -6,6 +6,8 @@ import {bindActionCreators} from 'redux';
 import {registerUser} from '../../actions/userActions';
 import Strings from '../../Strings';
 import MDSpinner from "react-md-spinner";
+import {Link} from 'react-router-dom';
+
 
 class Register extends React.Component {
 
@@ -47,7 +49,7 @@ class Register extends React.Component {
                                 {this.getButtonText()}
                             </a>
 
-                            <p className="login-message">{Strings.alreadyRegistered} <a onClick={() => store.dispatch(push("/login"))}>{Strings.login}</a></p>
+                            <p className="login-message">{Strings.alreadyRegistered} <Link to="/login">{Strings.login}</Link></p>
                         </form>
                     </div>
                 </div>

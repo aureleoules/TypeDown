@@ -41,6 +41,19 @@ export const authenticateUser = (username, password) => {
     }
 }
 
+export const getUser = (username) => {
+    return dispatch => {
+        dispatch({
+            type: "GET_USER_START"
+        });
+        client.get(`/user/${username}`).then(response => {
+            dispatch({type: "GET_USER_DONE", payload: response.data});
+        }).catch(err => {
+            dispatch({type: "GET_USER_ERROR", payload: err});
+        });;
+    }
+}
+
 export const logoutUser = () => {
     return dispatch => {
         removeToken();

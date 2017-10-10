@@ -6,9 +6,22 @@ const DocumentSchema = new Schema({
         type: String,
         required: true
     },
+    title: {
+        type: String,
+        required: true
+    },
+    tags: {
+        type: Array,
+        required: false
+    },
     owner: {
         type: String,
         required: false
+    },
+    public: {
+        type: Boolean,
+        required: true,
+        default: true
     },
     createdAt: {
         type: Date,

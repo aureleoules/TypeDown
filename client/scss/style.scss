@@ -17,6 +17,7 @@ body {
 html {
 	min-height: 100%;
 	height: 100%;
+	background-color: #2f3241;	
 }
 
 #root {
@@ -163,7 +164,6 @@ html {
 section {
 	min-height: 100%;
 	height: 100%;
-	padding-top: 65px
 }
 
 
@@ -193,4 +193,158 @@ section {
 .document-buttons {
 	justify-content: center!important;
 	margin: 15px
+}
+
+.preview {
+	margin: 0px 100px
+}
+
+.preview-infos {
+	text-align: center;	
+	color: #fafafa;
+	margin: 15px;
+	.preview-title {
+		color: #fafafa;			
+	}
+	.preview-author {
+		color: #fafafa
+	}
+}
+
+.page-404 {
+	color: #fafafa;
+	display: flex;
+	/* establish flex container */
+	flex-direction: column;
+	/* make main axis vertical */
+	justify-content: center;
+	/* center items vertically, in this case */
+	align-items: center;
+	/* center items horizontally, in this case */
+	height: 100%;
+	h1 {
+		font-size: 3em;		
+		text-align: center;		
+		color: #fafafa
+	}
+}
+
+.document-section, .profile-section, .new-document-section {
+	padding-top: 65px;
+	min-height: 100%;
+	height: 100%
+}
+
+.navbar-username, .navbar-username:hover, .navbar-username .is-active {
+	color: #fafafa;
+	margin-right: 15px;
+}
+.navbar-dropdown {
+	margin-right: 15px;
+	background-color: #fafafa;
+	i {
+		vertical-align: baseline;
+	}
+}
+
+.navbar-item.has-dropdown:hover .navbar-link, .navbar-item.has-dropdown.is-active .navbar-link {
+	background-color: transparent!important;
+}
+@keyframes downOpacity {
+	0% {
+	  opacity: 1;
+	  height: 100%
+	}
+	99% {
+		height: 100%
+	}
+	100% {
+		opacity: 0;
+		height: 0%
+	}
+}
+
+@keyframes zoomIn {
+	from {
+	  opacity: 0;
+	  visibility: visible;
+	  transform: scale3d(.3, .3, .3);
+	}
+  
+	50% {
+	  opacity: 1;
+	}
+	100% {
+		visibility: visible;
+	}
+  }
+
+  @keyframes flipInX {
+	from {
+	  transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+	  animation-timing-function: ease-in;
+	  opacity: 0;
+	  visibility: visible;
+	}
+  
+	40% {
+	  transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+	  animation-timing-function: ease-in;
+	}
+  
+	60% {
+	  transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+	  opacity: 1;
+	}
+  
+	80% {
+	  transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+	}
+  
+	to {
+	  transform: perspective(400px);
+	  visibility: visible
+	}
+  }
+
+.profile-section {
+	.username-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+		width: 100%;
+		padding-bottom: 65px;
+		animation: downOpacity 1s linear forwards;
+		animation-delay: 1.8s;
+	}
+	.username-top {
+		color: #fafafa;
+		font-size: 4em;
+		text-align: center;
+		font-family: "Love Story Rough";
+		animation: flipInX 1s linear forwards;
+		animation-delay: 2.8s;
+		visibility: hidden;
+		
+	}
+	.username {
+		text-align: center;
+		font-size: 5em;
+		color: #fafafa;
+		font-family: "Love Story Rough";
+	}
+	.document {
+		margin: 30px!important;
+		visibility: hidden;		
+		text-align: center;
+		animation: zoomIn 0.6s linear forwards;
+		animation-delay: 2.8s;
+	}
+	.container {
+		display: grid;
+		visibility: hidden;
+		grid-template-columns: repeat(3, 1fr);
+		grid-gap: 20px;
+	}
 }
