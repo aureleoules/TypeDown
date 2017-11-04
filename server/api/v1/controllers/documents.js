@@ -57,3 +57,12 @@ exports.get = function(req, res) {
         res.json({document})
     });
 }
+
+exports.search = function(req, res) {
+    const query = req.params.query;
+    Document.find({$text: {
+        $search: query
+    }}, (err, docs) => {
+        res.json({docs});
+    });
+}

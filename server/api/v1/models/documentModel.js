@@ -32,5 +32,6 @@ const DocumentSchema = new Schema({
         default: Date.now()
     }
 });
+DocumentSchema.index({content: 'text', title: 'text', tags: 'text', owner: 'text'});
 
 module.exports = mongoose.model('Document', DocumentSchema);

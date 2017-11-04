@@ -1,1 +1,3 @@
-# TypeDown.fr
+# TypeDown
+
+Markdown editor; Share documents!
